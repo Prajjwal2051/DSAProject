@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DSA Visualizer</h1>
+            <p>Interactive visualization of Data Structures</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Left Panel: Controls -->
+            <div class="control-panel">
+                <div class="structure-selector">
+                    <label for="structure-select">Select Structure:</label>
+                    <select id="structure-select">
+                        <option value="array">Array</option>
+                        <option value="stack">Stack</option>
+                        <option value="queue">Queue</option>
+                        <option value="tree">Binary Tree</option>
+                    </select>
+                </div>
+
+                <!-- Array Controls -->
+                <div id="array-controls" class="controls">
+                    <h3>Array Operations</h3>
+                    <div class="input-group">
+                        <input type="number" id="array-value" placeholder="Value">
+                        <input type="number" id="array-index" placeholder="Index">
+                        <button onclick="app.arrayInsert()">Insert</button>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" id="array-delete-index" placeholder="Index">
+                        <button onclick="app.arrayDelete()">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Stack Controls -->
+                <div id="stack-controls" class="controls hidden">
+                    <h3>Stack Operations</h3>
+                    <div class="input-group">
+                        <input type="number" id="stack-value" placeholder="Value">
+                        <button onclick="app.stackPush()">Push</button>
+                    </div>
+                    <div class="input-group">
+                        <button onclick="app.stackPop()">Pop</button>
+                    </div>
+                </div>
+
+                <!-- Queue Controls -->
+                <div id="queue-controls" class="controls hidden">
+                    <h3>Queue Operations</h3>
+                    <div class="input-group">
+                        <input type="number" id="queue-value" placeholder="Value">
+                        <button onclick="app.queueEnqueue()">Enqueue</button>
+                    </div>
+                    <div class="input-group">
+                        <button onclick="app.queueDequeue()">Dequeue</button>
+                    </div>
+                </div>
+
+                <!-- Tree Controls -->
+                <div id="tree-controls" class="controls hidden">
+                    <h3>Binary Tree Operations</h3>
+                    <div class="input-group">
+                        <input type="number" id="tree-value" placeholder="Value">
+                        <button onclick="app.treeInsert()">Insert</button>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" id="tree-search-value" placeholder="Search Value">
+                        <button onclick="app.treeSearch()">Search</button>
+                    </div>
+                    <div class="input-group">
+                        <label class="group-label">Traversal:</label>
+                        <button onclick="app.treeTraversal('inorder')" class="btn-traversal">Inorder</button>
+                        <button onclick="app.treeTraversal('preorder')" class="btn-traversal">Preorder</button>
+                        <button onclick="app.treeTraversal('postorder')" class="btn-traversal">Postorder</button>
+                    </div>
+                    <div class="input-group">
+                        <label class="group-label">Tree Info:</label>
+                        <button onclick="app.treeHeight()" class="btn-info">Height</button>
+                        <button onclick="app.treeCount()" class="btn-info">Count</button>
+                    </div>
+                    <div class="input-group">
+                        <label class="group-label">Find:</label>
+                        <button onclick="app.treeFindMin()" class="btn-find">Min</button>
+                        <button onclick="app.treeFindMax()" class="btn-find">Max</button>
+                    </div>
+                    <div class="input-group">
+                        <button onclick="app.treeClear()" class="btn-clear">Clear Tree</button>
+                    </div>
+                    <div id="traversal-result"></div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Visualization -->
+            <div class="visualization-panel">
+                <div id="viz-area"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load modules -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
